@@ -40,3 +40,5 @@ class CityService {
         }
     }
 }
+
+module.exports = CityService;
