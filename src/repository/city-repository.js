@@ -38,11 +38,18 @@ class CityRepository {
   async updateCity(cityId, data) {
     // data -> {key : value}
     try {
-      const city = City.update(data, {
-        where: {
-          id: cityId,
-        },
-      });
+      //Below approach also works but can't return city. (only in PostgreSQL, we can do returning: true)
+      // const city = City.update(data, {
+      //   where: {
+      //     id: cityId,
+      //   },
+      //   returning: true
+      // });
+
+      //in mysql, we use below approach
+      const city = await City.findByPk(cityId);
+      city.name = data.name;
+      await city.save();
       return city;
     } catch (error) {
       console.log("Something went wrong in the city repository layer");
