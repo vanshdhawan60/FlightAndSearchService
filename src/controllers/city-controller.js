@@ -89,10 +89,11 @@ const get = async (req, res) => {
         });
     }
 };
-// GET -> /city
+
+// GET -> /city?name=P..
 const getAll = async (req, res) => {
     try {
-        const cities = await cityService.getAllCities();
+        const cities = await cityService.getAllCities(req.query);
         // becaue id is in req.params for GET
         return res.status(201).json({
             data: cities,

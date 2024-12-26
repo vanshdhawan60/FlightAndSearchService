@@ -39,9 +39,9 @@ class CityService {
             throw({error});
         }
     }
-    async getAllCities() {
+    async getAllCities(query) {
         try {
-            const cities = await this.cityRepo.getAllCities();
+            const cities = await this.cityRepo.getAllCities({name: query.name});
             return cities;
         } catch (error) {
             console.log("Somethign went wrong in the city-service layer.");
