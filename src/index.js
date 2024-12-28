@@ -3,7 +3,7 @@ const {PORT} = require('./config/serverConfig')
 const ApiRoutes = require('./routes/index');
 
 const initDb = require('./dbInit');
-const {City, Airport} = require('./models/index');
+// const {City, Airport} = require('./models/index');
 
 const setupAndStartServer = async () => {
 
@@ -18,13 +18,13 @@ const setupAndStartServer = async () => {
         console.log(`started server on port ${PORT}`);
     })
 
-    const city = await City.findOne({
-        where: {
-            id: 5 
-        }
-    })
-    const airport = await city.getAirports();
-    console.log(airport);
+    // const city = await City.findOne({
+    //     where: {
+    //         id: 5 
+    //     }
+    // })
+    // const airport = await city.getAirports();
+    // console.log(airport);
 }
 
 initDb().then(setupAndStartServer());
