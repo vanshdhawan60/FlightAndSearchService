@@ -8,7 +8,7 @@ const create = async (req, res) => {
         return res.status(201).json({
             data: flight,
             error: {},
-            msg: "Successfully created flight: ${flight}",
+            msg: `Successfully created flight: ${flight}`,
             success: true,
         })
     } catch (error) {
